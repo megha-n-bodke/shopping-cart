@@ -1,0 +1,24 @@
+.BackColor{
+    background-color: blueviolet;
+}
+
+.HeaderContainer{
+    width:100%;
+    display: flex;
+}
+
+.MenuLink{
+    display: flex;
+}
+.MenuLink ul{
+    height:20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+li{
+    list-style: none;
+    padding-left: 20px;
+}
