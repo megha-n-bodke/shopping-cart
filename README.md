@@ -68,3 +68,38 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Design
+State: i.e. Reducers
+User
+Products
+Categories
+Wishlist
+Cart
+CustomerCare
+Blogs
+Comments
+UserPreferences:
+    1. List/Grid
+Album
+
+Actions:
+1. Login with Email
+2. Login with Social
+
+Wishlist:
+1. Add
+2. Delete
+
+Cart:
+1. Add
+2. Delete
+3. Update
+4. Place Order
+
+Blog:
+1. Get Blogs
+2. Get Blog Details
+3. Post Comment
+

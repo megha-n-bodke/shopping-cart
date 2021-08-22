@@ -1,0 +1,30 @@
+.AdvantagesText{
+    padding: 10px 80px;
+}
+.AlignText{
+    text-align:justify;
+    align-content:center;
+}
+
+.Circle{
+        width: 80px;
+        height: 80px;
+        background:#C4C4C4;
+        border-radius: 50%;
+        margin-left: 20px;        
+      
+}
+
+.Center{
+    align-content:center;
+}
+
+
+.Display{
+    display: flex;
+}
+
+.BgColor{
+    background-color: #F7F1D4;
+    width:100%
+}
