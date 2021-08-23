@@ -16,8 +16,12 @@ const MenTopProducts = () => {
         // https://fakestoreapi.com/products/category/women's%20clothing
         // https://fakestoreapi.com/products/category/men's%20clothing
         // limit = 5
-
-        axios.get("https://fakestoreapi.com/products/category/men's%20clothing")
+        // let params = new URLSearchParams();
+        // params.append('limit', 2);
+        
+        axios.get("https://fakestoreapi.com/products/category/men's%20clothing", {params:{
+            limit: 4}
+     } )
             .then(response => {
                 alert(response.data);
                 console.log(response.data);
