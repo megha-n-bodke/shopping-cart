@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import { useForm } from 'react-hook-form';
 import { AiOutlineLock, AiFillFacebook, } from "react-icons/ai";
@@ -8,30 +8,41 @@ import { FaTwitterSquare } from "react-icons/fa";
 import image from '../../Assets/Images/welcome-page-blog-header.jpg'
 import axios from 'axios';
 import { useHistory } from 'react-router';
-
-
+import { useDispatch } from 'react-redux';
 
 
 const LoginPage = () => {
+    const dispatch = useDispatch();
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [user, setUser] = useState();
+    const [error, setError] = useState(null);
+
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const history = useHistory()
-    //  const dispatch = useDispatch();
     const onSubmit = data => {
-         alert(data.username);
-                //  dispatch(registerAction(data));
-        // history.push('/welcome')
-                axios.post('https://fakestoreapi.com/auth/login', data)
-                .then(res => {
-                    if(res.data)
-                    {
-                        //alert("recceived token")
-                        console.log(res)
-                        history.push('/')
-                    }
-                         reset();
-
-             })
-
+         // Success
+         // {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"}
+         // Failure
+        // {"status":"Error","msg":"username or password is incorrect"}
+        axios.post('https://fakestoreapi.com/auth/login', data)
+        .then(response => {
+            if(response.data.token)
+            {
+                dispatch({
+                    type: "ENTER_AS_USER",
+                    payload: { isLoggedIn: true }
+                });
+                dispatch({
+                    type: "LOGGED_IN",
+                    payload: {username: data.username, token: response.data.token}
+                });
+                history.push('/')
+            } else {
+                // TODO Display error message
+                setError({"message": response.data.msg});
+                reset();
+            }
+     })
     }
 
     return (

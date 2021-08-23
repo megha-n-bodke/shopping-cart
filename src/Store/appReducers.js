@@ -1,11 +1,11 @@
 // import {default as reduxSaga} from "./../redux-saga/reducer"
 import {combineReducers} from "redux";
 import isLoggedIn from "./reducers/isLoggedIn";
-// import registerReducer from "../registration/registerReducer";
+import user from './reducers/user';
 
 const reducers = combineReducers({
-    isLoggedIn
-
+    isLoggedIn,
+    user
 });
 
 export default reducers;
