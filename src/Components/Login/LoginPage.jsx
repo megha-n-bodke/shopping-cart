@@ -7,12 +7,14 @@ import { FcGoogle } from "react-icons/fc";
 import { FaTwitterSquare } from "react-icons/fa";
 import image from '../../Assets/Images/welcome-page-blog-header.jpg'
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 
 
 
 const LoginPage = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const history = useHistory()
     //  const dispatch = useDispatch();
     const onSubmit = data => {
          alert(data.username);
@@ -22,10 +24,11 @@ const LoginPage = () => {
                 .then(res => {
                     if(res.data)
                     {
-                        alert("recceived token")
-                        //history.push()
+                        //alert("recceived token")
+                        console.log(res)
+                        history.push('/')
                     }
-                        // reset();
+                         reset();
 
              })
 
