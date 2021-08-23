@@ -1,0 +1,13 @@
+.cardContainer{
+    width:auto;
+    display: flex;
+    align-items: stretch;
+    align-content: space-between;
+}
+.productImage{
+    width:100px;
+    height:100px;
+}
+#p{
+    text-overflow: initial;
+}
