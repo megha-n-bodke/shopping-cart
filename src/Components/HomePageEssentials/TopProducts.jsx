@@ -1,17 +1,21 @@
 import React from 'react';
 import './HomePageEssentials.css'
+import { Tab, Tabs } from 'react-bootstrap';
+import MenTopProducts from './MenTopProducts';
+import WomenTopProduct from './WomenTopProduct';
+import JewelleryTopProducts from './JewelleryTopProducts';
 
 const TopProducts = () => {
     return (
     <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
-        <Tab eventKey="home" title="Home">
-            <Sonnet />
+        <Tab eventKey="men" title="Men">
+            <MenTopProducts />
         </Tab>
-        <Tab eventKey="profile" title="Profile">
-            <Sonnet />
+        <Tab eventKey="women" title="Women">
+            <WomenTopProduct />
         </Tab>
-        <Tab eventKey="contact" title="Contact" disabled>
-            <Sonnet />
+        <Tab eventKey="jewellery" title="Jwellery" >
+            <JewelleryTopProducts />
         </Tab>
     </Tabs>
     )
