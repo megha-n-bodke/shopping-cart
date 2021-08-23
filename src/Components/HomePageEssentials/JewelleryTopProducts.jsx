@@ -11,7 +11,8 @@ const JewelleryTopProducts = () => {
     useEffect(() => {
         // GET request using axios inside useEffect React hook
         // limit = 5
-        axios.get("https://fakestoreapi.com/products/category/jewelery")
+        axios.get("https://fakestoreapi.com/products/category/jewelery",{params:{
+            limit: 4}})
             .then(response => {
                 alert(response.data);
                 console.log(response.data);

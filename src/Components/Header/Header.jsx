@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 
+
 const Header = () => {
     return (
         <>
@@ -22,7 +23,9 @@ const Header = () => {
                         <li>Albums</li>
                         <li>Blogs</li>
                         <li><AiOutlineShoppingCart /></li>
-                        <li data-toggle="popover" title="Login" data-content="megha bodke"><HiOutlineUser /></li>
+                        <li data-toggle="popover" title="Login" title= "myCart" data-content="megha bodke"><HiOutlineUser />
+                        
+                        </li>
                     </ul>
                 </div>
             </div>

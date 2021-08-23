@@ -11,7 +11,8 @@ const WomenTopProduct = () => {
     useEffect(() => {
         // GET request using axios inside useEffect React hook
         // limit = 5
-        axios.get("https://fakestoreapi.com/products/category/women's%20clothing")
+        axios.get("https://fakestoreapi.com/products/category/women's%20clothing",{params:{
+            limit: 4}})
             .then(response => {
                 alert(response.data);
                 console.log(response.data);
