@@ -22,3 +22,22 @@
 /* ul{
     display: flex;
 } */
+
+.welcomeContainer{
+    position: relative;
+    width:900px;
+}
+
+.image{
+    width:400px;
+}
+ #img{
+    width:400px;
+    height:300px;
+
+ }
+.logoBtn{
+    position: absolute;
+    top:20%;
+    left:100%;
+}

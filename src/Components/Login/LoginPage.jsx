@@ -36,7 +36,7 @@ const LoginPage = () => {
                     type: "LOGGED_IN",
                     payload: {username: data.username, token: response.data.token}
                 });
-                history.push('/')
+                history.push('/');
             } else {
                 // TODO Display error message
                 setError({"message": response.data.msg});
@@ -52,6 +52,7 @@ const LoginPage = () => {
                     <h1>Login Page</h1>
                     <div>
                         <form onSubmit={handleSubmit(onSubmit)}>
+                        <p>{error?"username or password is incorrect":""}</p>
                             <HiOutlineUser className="user" />
                             <input type="text"
                                 className="inputText"
@@ -90,12 +91,16 @@ const LoginPage = () => {
                         </form>
                     </div>
                 </div>
-                <div className="col-md-6 col-sm-12">
-                    <h1>Welcome Page</h1>
-                    <div><img src={image} ></img></div>
+                <div className="col-md-6 col-sm-12 welcomeContainer">
 
+                    <h1>Welcome Page</h1>
+                    <button className = "logoBtn">Logo</button>
+                    <div className="image"><img src={image} ></img></div>
                 </div>
+                
+                
             </div>
+            
         </div>);
 }
 
