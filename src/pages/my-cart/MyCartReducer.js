@@ -15,7 +15,11 @@ export default function MyCartReducer(state = initialState, {payload, type}) {
             };
         }
         case "DELETE_FROM_CART": {
-            return state.filter((cartItem) => cartItem !== payload.id)
+            const { [payload.id]: remove, ...rest } = state;
+            return rest;
+        }
+        case "PLACE_ORDER": {
+            return {};
         }
         default:
             return state;

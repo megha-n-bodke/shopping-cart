@@ -37,7 +37,11 @@ const Header = () => {
                         <li>
                             <Link to="/blog">Blog</Link>
                         </li>
-                        <li><AiOutlineShoppingCart /></li>
+                        <li>
+                            <Link to="/my-cart">
+                            <AiOutlineShoppingCart />
+                            </Link>
+                        </li>
                         <li data-toggle="popover" title="Login" title="myCart" data-content="megha bodke"><HiOutlineUser />
                         </li>
                     </ul>

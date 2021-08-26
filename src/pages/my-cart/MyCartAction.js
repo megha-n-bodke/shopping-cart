@@ -25,3 +25,10 @@ export function deleteFromCart(id) {
         payload: {id}
     }
 }
+
+export function placeOrder() {
+    return {
+        type: "PLACE_ORDER",
+        payload: {}
+    }
+}
