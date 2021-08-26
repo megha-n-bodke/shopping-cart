@@ -3,73 +3,39 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './album.css'
 
-
 const Albums = () => {
-//     const [photos, setPhotos] = useState([])
-//     useEffect(() => {
-//         axios
-//             .get(' https://jsonplaceholder.typicode.com/photos')
-//             .then(res => {
-//                 console.log(res)
-//                 setPhotos(res.data)
-//             })
-//             .catch(err => {
-//                 console.log(err)
-//             })
-//     }, [])
+    const [photos, setPhotos] = useState([])
+    useEffect(() => {
+        axios
+            .get(' https://jsonplaceholder.typicode.com/photos')
+            .then(res => {
+                console.log(res)
+                setPhotos(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
 
-//     const photosView = photos.map((photo, index) => {
-//         return (
-//         <div className=" container-fluid row" key={index}>
-//             <div className="albumContainer ">
-//                 <img src={photo.url} className="image" alt="a"></img>
-//                 <div >
-//                     <p key={photo.id}>{photo.title}</p>
-//                 </div>
-//             </div>
-//         </div>
-//         );
-//     });
-//     return (
-//         <div>
-//             { photosView }
-//         </div>
-//     );
-// }
-
-
-const  [posts,setPosts] = useState([])
-useEffect(() => {
-    axios
-    .get(' https://jsonplaceholder.typicode.com/photos')
-    .then(res=>{
-        console.log(res)
-        setPosts(res.data)})
-        .catch(err=>{console.log(err)
-        })
-    },[])
-    
-return <div>
-    <ul>
-    
-        {posts.map(post =>(
-             
-            <div className = " container-fluid row">
-            <div className = "albumContainer ">
-            <img src={post.url} className = "image"></img>
-            <div >
-            <p key={post.id}>{post.title}</p>
+    const photosView = photos.map((photo, index) => {
+        return (
+                <div key={index}>
+                <img src={photo.url} className="image" alt="a" />
+                <div>
+                    <p key={photo.id}>{photo.title}</p>
+                </div>
+                </div>
+        );
+    });
+    return (
+        <div>
+            <div className=" container-fluid row" >
+                <div className="albumContainer" >
+                { photosView }
+                </div>
             </div>
-            </div>
-
-            {/* {post.albumId.map(title =>(
-                <p key={title.id}>{title.title}</p>
-
-            ))} */}
-            </div>
-        ))}
-    </ul>
-</div>
+        </div>
+    );
 }
 
 export default Albums;
