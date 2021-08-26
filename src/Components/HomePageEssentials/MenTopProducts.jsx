@@ -23,7 +23,6 @@ const MenTopProducts = () => {
             limit: 4}
      } )
             .then(response => {
-                alert(response.data);
                 console.log(response.data);
                 setPosts(response.data);
             });

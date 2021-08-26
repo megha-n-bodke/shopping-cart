@@ -14,7 +14,6 @@ const JewelleryTopProducts = () => {
         axios.get("https://fakestoreapi.com/products/category/jewelery",{params:{
             limit: 4}})
             .then(response => {
-                alert(response.data);
                 console.log(response.data);
                 setPosts(response.data);
             });
