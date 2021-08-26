@@ -1,0 +1,9 @@
+.albumContainer{
+    width: 150px;
+    height:200px;
+}
+
+.image{
+    width:100px;
+    border-radius: 5px;
+}
