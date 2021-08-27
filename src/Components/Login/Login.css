@@ -1,5 +1,6 @@
 .loginPageContainer{
     display: flex;
+    width:100%;
 }
 
 .user{
@@ -23,9 +24,41 @@
     display: flex;
 } */
 
+.ulBullets{
+    list-style-type:none;
+}
+
+.socialLi{
+    display: inline-block;
+    /* You can also add some margins here to make it look prettier */
+    zoom:2;
+    *display:inline;
+    padding:3px;
+    /* this fix is needed for IE7- */
+}
+
+.vbottom{
+    position: relative;
+    top: 100%;
+    transform: translateY(-100%); 
+}
+
+
+.loginBackground{
+    padding: 8px 20px;
+    margin: 24px -20px;
+    box-shadow: none!important;
+    background-color: #E7E9EB;
+    border-radius: 5px;
+    padding: 0.01em 16px;
+    margin: 20px 0;
+    /*box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+*/
+}
+
 .welcomeContainer{
     position: relative;
-    width:900px;
+    width:100%;
 }
 
 .image{

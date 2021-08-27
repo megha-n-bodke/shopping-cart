@@ -22,9 +22,9 @@ const JewelleryTopProducts = () => {
     return (
         <div className = "cardContainer">
             {posts.map(post =>(
-                <div key={post.id}>
-                <TopProductCard title={post.title} image={post.image} price={post.price}></TopProductCard>
-                </div>
+                
+                <TopProductCard key={post.id} title={post.title} image={post.image} price={post.price}></TopProductCard>
+                
             ))}
         </div>
     );

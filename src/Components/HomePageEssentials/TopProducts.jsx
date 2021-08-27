@@ -1,15 +1,18 @@
 import React from 'react';
 import './HomePageEssentials.css'
-import { Tab, Tabs } from 'react-bootstrap';
+import { Row, Tab, Tabs } from 'react-bootstrap';
 import MenTopProducts from './MenTopProducts';
 import WomenTopProduct from './WomenTopProduct';
 import JewelleryTopProducts from './JewelleryTopProducts';
 
 const TopProducts = () => {
     return (
-    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+       
+    <Tabs defaultActiveKey="men" id="uncontrolled-tab-example" className="mb-3">
         <Tab eventKey="men" title="Men">
+        <Row>
             <MenTopProducts />
+            </Row>
         </Tab>
         <Tab eventKey="women" title="Women">
             <WomenTopProduct />
@@ -18,6 +21,7 @@ const TopProducts = () => {
             <JewelleryTopProducts />
         </Tab>
     </Tabs>
+    
     )
 }
 

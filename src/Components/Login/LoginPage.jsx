@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './Login.css'
 import { useForm } from 'react-hook-form';
 import { AiOutlineLock, AiFillFacebook, } from "react-icons/ai";
 import { HiOutlineUser } from "react-icons/hi";
 import { FcGoogle } from "react-icons/fc";
 import { FaTwitterSquare } from "react-icons/fa";
-import image from '../../Assets/Images/welcome-page-blog-header.jpg'
+import image from '../../Assets/Images/welcomePage.png'
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Col, Container, Row } from 'react-bootstrap';
 
 
 const LoginPage = () => {
@@ -20,88 +22,117 @@ const LoginPage = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const history = useHistory()
     const onSubmit = data => {
-         // Success
-         // {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"}
-         // Failure
+        // Success
+        // {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"}
+        // Failure
         // {"status":"Error","msg":"username or password is incorrect"}
         axios.post('https://fakestoreapi.com/auth/login', data)
-        .then(response => {
-            if(response.data.token)
-            {
-                dispatch({
-                    type: "ENTER_AS_USER",
-                    payload: { isLoggedIn: true }
-                });
-                dispatch({
-                    type: "LOGGED_IN",
-                    payload: {username: data.username, token: response.data.token}
-                });
-                history.push('/');
-            } else {
-                // TODO Display error message
-                setError({"message": response.data.msg});
-                reset();
-            }
-     })
+            .then(response => {
+                if (response.data.token) {
+                    dispatch({
+                        type: "ENTER_AS_USER",
+                        payload: { isLoggedIn: true }
+                    });
+                    dispatch({
+                        type: "LOGGED_IN",
+                        payload: { username: data.username, token: response.data.token }
+                    });
+                    history.push('/');
+                } else {
+                    // TODO Display error message
+                    setError({ "message": response.data.msg });
+                    reset();
+                }
+            })
     }
 
     return (
-        <div className="loginPageContainer">
-            <div className="row">
-                <div className="loginContainer col-md-6 col-sm-12">
-                    <h1>Login Page</h1>
-                    <div>
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                        <p>{error?"username or password is incorrect":""}</p>
-                            <HiOutlineUser className="user" />
-                            <input type="text"
-                                className="inputText"
-                                placeholder="Enter username "
-                                name="username"  {...register("username", { required: true, pattern: /^[a-z0-9_]/ })}>
-                            </input>
-                            <p className="errors">{errors.username?.type === 'required' && "username is required"}</p>
-                            <p className="errors">{errors.username?.type === "pattern" && "Invalid username"}</p>
+        <Container>
+            <Row>
+                <Col lg={6} sm={{order:1}} className="loginBackground">
+                    <Container className="justify-content:flex-"> 
+                        <Row>
+                     
+                        <div className="col-md-2"></div>
+                            <div className="col-md-8">
+                            <Row>
+                            <h1 className="text-center">Login</h1>
+                                <form onSubmit={handleSubmit(onSubmit)} className="form-horizontal">
+                                  
+                                    <div className="form-group">
+                    <div className="col-xs-6 col-xs-offset-3">
+                    <p>{error ? "username or password is incorrect" : ""}</p>
+                                    <HiOutlineUser className="user" />
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    <input type="text"
+                                        className="inputText form-control"
+                                        placeholder="Enter Username "
+                                        name="username"  {...register("username", { required: true, pattern: /^[a-z0-9_]/ })}>
+                                    </input>
+                                    </div>
+                                    </div>
+                                    
+                                    <div className="form-group">
+                    <div className="col-xs-6 col-xs-offset-3">
+                    <p className="errors">{errors.username?.type === 'required' && "username is required"}</p>
+                                    <p className="errors">{errors.username?.type === "pattern" && "Invalid username"}</p>
 
 
-                            <AiOutlineLock className="user" />
-                            <input type="password"
-                                className="inputText"
-                                placeholder="Enter password "
-                                name="password"  {...register("password", { required: true })}>
-                            </input>
-                            <p className="errors">{errors.password?.type === 'required' && "password is required"}</p>
+                                    <AiOutlineLock className="user" />
+                                    <input type="password"
+                                        className="inputText form-control"
+                                        placeholder="Enter Password "
+                                        name="password"  {...register("password", { required: true })}>
+                                    </input>
+                                    </div></div>
 
-                            <button type="submit">Login</button>
+                                    <div className="form-group text-center">
+                                        <p className="errors">{errors.password?.type === 'required' && "password is required"}</p>
+                                        <button type="submit" className="btn btn-light">Login</button>
+                                    </div>
 
-                            <div className="socialMediaLogin">
-                                <p>Or</p>
-                                <p>Login with</p>
-                                <div className="socialMediaIcons">
-                                    <ul>
-                                        <li className="fbIcon"><AiFillFacebook /></li>
-                                        <li classname="googleIcon"><FcGoogle /></li>
-                                        <li className="twitterIcon"><FaTwitterSquare /></li>
-                                    </ul>
+                                </form>
+                            </Row>
+                            <Row>
+                                <div  className="socialMediaLogin text-center">
+                                    <p>Or</p>
+                                    <p>Login with</p>
+                                    <div className="socialMediaIcons">
+                                        <ul >
+                                            <li className="fbIcon socialLi"><AiFillFacebook /></li>
+                                            <li className="googleIcon socialLi"><FcGoogle /></li>
+                                            <li className="twitterIcon socialLi"><FaTwitterSquare /></li>
+                                        </ul>
+                                    </div>
                                 </div>
+                            </Row>
                             </div>
-                            <div>
-                                <p>Not a member register</p>
-                            </div>
+                        
+                            <div className="col-md-2"></div>
+                        </Row>
+                        <Row>
+                        <div className="flex-end text-center">
+                                <p>Not a member <Link to="/register">register</Link></p>
+                        </div>
+                        </Row>
+                    </Container>
+                </Col>
+                <Col lg={6} sm={{order:2}} className="text-center">
+                    <Row>
+                    <Col lg={10}>
+                    <button className="btn btn-warning">Logo</button>
+                    </Col>
+                    </Row>
 
-                        </form>
-                    </div>
-                </div>
-                <div className="col-md-6 col-sm-12 welcomeContainer">
-
-                    <h1>Welcome Page</h1>
-                    <button className = "logoBtn">Logo</button>
-                    <div className="image"><img src={image} ></img></div>
-                </div>
-                
-                
-            </div>
-            
-        </div>);
+                    <Row>
+                    
+                    <h1>Welcome G Store</h1>
+                    <div className="img-fluid"><img src={image} ></img></div>
+                    </Row>
+                </Col>
+            </Row>
+        </Container>
+    );
 }
 
 

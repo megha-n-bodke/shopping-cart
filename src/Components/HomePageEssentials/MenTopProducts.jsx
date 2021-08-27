@@ -5,6 +5,7 @@ import * as products from 'react-bootstrap/ElementChildren';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './card.css'
+import { Row } from 'react-bootstrap';
 
 
 const MenTopProducts = () => {
@@ -31,14 +32,15 @@ const MenTopProducts = () => {
     }, []);
 
     return (
-        <div className = "cardContainer">
+        <>
             {posts.map(post =>(
-                <div key={post.id}>
-                <TopProductCard title={post.title} image={post.image} price={post.price}></TopProductCard>
-                </div>
-
+            
+                <TopProductCard key={post.id}  title={post.title} image={post.image} price={post.price}></TopProductCard>
+                
             ))}
-        </div>
+        </>
+
+        
     );
 }
 

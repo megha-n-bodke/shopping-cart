@@ -6,13 +6,29 @@
     align-content:center;
 }
 
-.Circle{
+/* .Circle{
         width: 80px;
         height: 80px;
         background:#C4C4C4;
         border-radius: 50%;
         margin-left: 20px;        
       
+} */
+
+.block {
+    
+    text-align: center;
+    vertical-align: middle;
+}
+.Circle {
+    background: #C4C4C4;
+    border-radius: 50%;
+    color: white;
+    height: 90px;
+    font-weight: bold;
+    width: 90px;
+    display: table;
+    margin: 20px auto;
 }
 
 .Center{
