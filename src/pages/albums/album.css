@@ -7,3 +7,10 @@
     width:100px;
     border-radius: 5px;
 }
+
+.imgresp{
+    width: 100%;
+    max-height: 200px;
+    height: auto;
+    border-radius: 10px;
+}

@@ -1,3 +1,7 @@
+export function getCart(state) {
+    return state.cart;
+}
+
 export function addToCart(id, quantity) {
     return {
         type: "ADD_TO_CART",

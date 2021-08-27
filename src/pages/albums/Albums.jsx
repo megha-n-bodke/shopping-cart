@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './album.css'
+import { Container, Row } from 'react-bootstrap';
 
 const Albums = () => {
     const [photos, setPhotos] = useState([])
@@ -19,22 +20,23 @@ const Albums = () => {
 
     const photosView = photos.map((photo, index) => {
         return (
-                <div key={index}>
-                <img src={photo.url} className="image" alt="a" />
-                <div>
+            <div key={index} className="col-md-3 text-center" style={{}}>
+
+                          <img src={photo.url} className="imgresp" alt="a" />
+               
                     <p key={photo.id}>{photo.title}</p>
-                </div>
-                </div>
+              </div>
         );
     });
     return (
-        <div>
-            <div className=" container-fluid row" >
-                <div className="albumContainer" >
-                { photosView }
-                </div>
-            </div>
-        </div>
+        <Container>
+        <Row>
+
+                    
+                    { photosView }
+                   
+            
+        </Row></Container>
     );
 }
 
