@@ -7,6 +7,7 @@ import MyCartReducer from '../pages/my-cart/MyCartReducer';
 import MyWishListReducer from '../pages/my-wish-list/MyWishListReducer';
 import ProductListReducer from '../Components/ProductList/ProductListReducer';
 import ProductPaginatorReducer from '../Components/ProductList/ProductPaginatorReducer';
+import AlbumPaginatorReducer from '../pages/albums/AlbumPaginatorReducer';
 
 const reducers = combineReducers({
     isLoggedIn,
@@ -15,7 +16,8 @@ const reducers = combineReducers({
     cart: MyCartReducer,
     wishlist: MyWishListReducer,
     products: ProductListReducer,
-    productsPagination: ProductPaginatorReducer
+    productsPagination: ProductPaginatorReducer,
+    albumsPagination: AlbumPaginatorReducer
 });
 
 export default reducers;

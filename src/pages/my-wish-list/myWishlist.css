@@ -1,0 +1,17 @@
+.imgresponsive {
+    width: 100%;
+    max-height: 200px;
+    height: auto;
+  }
+
+  .expand-position-for-picture {
+    border-radius: 22px;
+    color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px 13px 10px 14px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, .2), 0 0 6px rgba(0, 0, 0, .2);
+    -webkit-transition: background .3s;
+    transition: background .3s;
+  }

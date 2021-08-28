@@ -14,7 +14,7 @@ const TopProductCard = ({ title, price, image }) => {
         
 
          <div className="col-md-3 border" mr={5} style={{marginRight:"25px", width: "18rem", padding: "10px"}}>
- 
+ <div className="col-md-12">
          <img src={image} className="card-img-top imgresponsive" alt="..."></img>
            <div className="card-body">
            <Row>
@@ -26,7 +26,7 @@ const TopProductCard = ({ title, price, image }) => {
                       : <FcLike  onClick={()=>{settogglePassword(!togglePassword) }} type="button"></FcLike>}
                       </Col>
 </Row>        <p className="card-text"><BiRupee></BiRupee> {price}</p>
-       
+       </div>
            </div>
        </div>
        
