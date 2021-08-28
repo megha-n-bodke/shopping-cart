@@ -18,6 +18,8 @@ import LoginPage from '../Login/LoginPage';
 import MyWishList from '../../pages/my-wish-list/MyWishList';
 import Blog from '../../pages/blog/Blog';
 import OurJourney from '../../pages/journey/OurJourney';
+import blogdetails from '../../pages/blog/Blogdetails';
+import Blogdetails from '../../pages/blog/Blogdetails';
 
 
 const Header = () => {
@@ -60,6 +62,7 @@ const Header = () => {
                     <Route exact path="/albums" component={Albums} />
                     <Route exact path="/blog" component={Blog} />
                     <Route exact path="/journey" component={OurJourney} />
+                    <Route exact path="/blogdetails" component={Blogdetails} />
                 </Switch>
             </Router>
         </>

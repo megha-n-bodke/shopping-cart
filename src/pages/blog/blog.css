@@ -1,0 +1,15 @@
+.blogContainer{
+    display:flex;
+}
+
+.blogs{
+    display:table-cell;
+}
+
+#img{
+    background-color: aqua;
+    border :black 5px solid;
+    border-radius: 50%;
+}
+
+.top-buffer { padding-top:20px; }
