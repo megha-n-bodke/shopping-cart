@@ -9,12 +9,12 @@ const SortBy = () => {
     const dispatch = useDispatch();
 
     return (
-        <div>
+        <>
             <DropdownButton id="dropdown-basic-button" title={sortBy}>
                 <Dropdown.Item onClick={() => dispatch(SortByAction("PRICE"))}>Price</Dropdown.Item>
                 <Dropdown.Item onClick={() => dispatch(SortByAction("TITLE"))}>Title</Dropdown.Item>
             </DropdownButton>
-        </div>
+        </>
     )
 }
 

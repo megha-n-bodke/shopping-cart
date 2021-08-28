@@ -14,7 +14,7 @@ const Category = () => {
     const categoryList = categories.map((category, index) => {
         return (
             <div key={index}>
-                <p>{category}</p>
+                <p className="text-capitalize">{category}</p>
             </div>
         );
     });

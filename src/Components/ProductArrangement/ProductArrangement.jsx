@@ -9,7 +9,7 @@ const ProductArrangement = () => {
     const label = view === "GRID" ? "Grid" : "List";
     const listView = view === "GRID";
     return (
-        <div>
+        <>
             <ToggleButton
                 id="toggle-check"
                 type="checkbox"
@@ -20,7 +20,7 @@ const ProductArrangement = () => {
             >
                 {label}
             </ToggleButton>
-        </div>
+        </>
     )
 }
 

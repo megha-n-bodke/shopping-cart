@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Button, Image } from 'react-bootstrap';
+import { Button, Image, Row } from 'react-bootstrap';
 import SortByAction from '../SortBy/SortByAction';
 import { addToCart } from '../../pages/my-cart/MyCartAction';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishList } from '../../pages/my-wish-list/MyWishListAction';
 import { loadProducts } from './ProductListAction';
 import { setupProductsPagination } from './ProductPaginatorAction';
+import "./product.css";
+import { BsHeart } from "react-icons/bs";
+import { FcLike } from "react-icons/fc";
+
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
@@ -60,23 +64,25 @@ const ProductList = () => {
 
     let start = (pagingInfo.current_page - 1)  * pagingInfo.items_per_page;
     let productsInView = productsSorted.slice(start, start + pagingInfo.items_per_page);
-
+    const [toggle, settoggle] = useState(true);
     const productList = productsInView.map((product, index) => {
         return (
-            <div key={index}>
-                <Image src={product.image} />
-                <div>{product.title}</div>
-                <div>{product.description}</div>
+            <div key={index} className="col-sm-3">
+                <Image className="imgresponsive" src={product.image} />
+                <div className="text-truncate">{product.title}</div>
+                <div className="text-truncate">{product.description}</div>
                 <div>{currency}{product.price}</div>
                 <Button onClick={() => dispatch(addToCart(product.id, 1))}>Add to Cart</Button>
                 <Button onClick={() => dispatch(addToWishList(product.id))}>Add to WishList</Button>
+                {toggle ? <BsHeart id={"heart"+product.id}  onClick={()=>{settoggle(!toggle) }} type="button"></BsHeart> 
+                      : <FcLike  onClick={()=>{settoggle(!toggle) }} type="button"></FcLike>}
             </div>
         );
     });
     return (
-        <div>
+        <Row>
             { productList }
-        </div>
+        </Row>
     )
 }
 
