@@ -14,8 +14,6 @@ const Paginator = ({ list: list, paging: paging }) => {
     // Prev, 3, 4 start: 3, end: 4
 
     // item will be number to show
-    // TODO start
-    // TODO updating page buttons list
     let items = [];
     if (paging.current_page !== 1) {
         items.push(
