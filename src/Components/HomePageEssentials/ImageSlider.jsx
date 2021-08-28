@@ -11,7 +11,7 @@ const ImageSlider = () => {
    <>
     <div className='container-fluid' >  
 
-                         {/* <Carousel>  
+                          <Carousel>  
                          <Carousel.Item style={{'height':"300px"}} >  
 
                          <img style={{'height':"300px"}}  
@@ -53,27 +53,28 @@ const ImageSlider = () => {
 
 
 
-</Carousel> */}
-<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+</Carousel> 
+</div>
+{/* <div id="carouselExampleCaptions" className="carousel slide" data-ride="carousel">
+  <ol className="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active"></li>
     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner">
+  <div className="carousel-inner">
     
-  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+  <a className="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+  <a className="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="sr-only">Next</span>
   </a>
 </div>
 </div>
 
-    </div>
+    </div> */}
     </>
     );
 }
