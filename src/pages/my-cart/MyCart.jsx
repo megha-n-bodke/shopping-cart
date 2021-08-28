@@ -2,6 +2,7 @@ import React from 'react';
 import PriceDetails from '../../Components/PriceDetails/PriceDetails';
 import CartProductList from '../../Components/CartProductList/CartProductList';
 import { useSelector } from 'react-redux';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const MyCart = () => {
     const cart = useSelector(state => state.cart);
@@ -13,10 +14,16 @@ const MyCart = () => {
         )
     } else {
         return (
-            <div>
+            <Container>
+                <Row>
+                <Col md={9}>
                 <CartProductList></CartProductList>
+                </Col>
+                <Col md={3}>
                 <PriceDetails></PriceDetails>
-            </div>
+                </Col>
+                </Row>
+            </Container>
         )
     }
 }

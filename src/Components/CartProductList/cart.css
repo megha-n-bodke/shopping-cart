@@ -1,0 +1,9 @@
+.top-buffer { margin-bottom: 40px; padding: 20px}
+
+.btn {
+    margin-left: 20px;
+}
+
+.dashed-border-bottom {
+    border-bottom: 1px dashed #dee2e6!important;
+}

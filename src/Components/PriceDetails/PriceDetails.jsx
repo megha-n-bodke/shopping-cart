@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Table } from 'react-bootstrap';
+import { Card, Table } from 'react-bootstrap';
 
 const PriceDetails = () => {
     const cart = useSelector(state => state.cart);
@@ -22,10 +22,10 @@ const PriceDetails = () => {
     savings = Math.round((savings + Number.EPSILON) * 100) / 100;
 
     return (
-        <div>
-            <Table hover responsive>
-                <thead>
-                <tr>
+        <Card>
+            <Table borderless responsive>
+                <thead className="justify-content-md-start">
+                <tr className="border-bottom">
                     <p>Price Details</p>
                 </tr>
                 </thead>
@@ -42,11 +42,11 @@ const PriceDetails = () => {
                     <td>GST</td>
                     <td>{gst}%</td>
                 </tr>
-                <tr>
+                <tr className="dashed-border-bottom">
                     <td>Delivery charges</td>
                     <td>Free</td>
                 </tr>
-                <tr>
+                <tr className="dashed-border-bottom">
                     <td>Total Amount</td>
                     <td>{amountToPay}</td>
                 </tr>
@@ -55,7 +55,7 @@ const PriceDetails = () => {
                 </tr>
                 </tbody>
             </Table>
-        </div>
+    </Card>
     )
 }
 
