@@ -20,7 +20,8 @@ const Category = () => {
     });
     return (
         <div>
-            <h3>Category</h3>
+            <h5>Category</h5>
+            <hr/>
             { categoryList }
         </div>
     )

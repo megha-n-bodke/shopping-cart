@@ -20,6 +20,7 @@ import Blog from '../../pages/blog/Blog';
 import OurJourney from '../../pages/journey/OurJourney';
 import blogdetails from '../../pages/blog/Blogdetails';
 import Blogdetails from '../../pages/blog/Blogdetails';
+import ProductDetails from '../ProductList/ProductDetails';
 
 
 const Header = () => {
@@ -63,6 +64,8 @@ const Header = () => {
                     <Route exact path="/blog" component={Blog} />
                     <Route exact path="/journey" component={OurJourney} />
                     <Route exact path="/blogdetails" component={Blogdetails} />
+                    <Route exact path="/productdetails" component={ProductDetails} />
+
                 </Switch>
             </Router>
         </>

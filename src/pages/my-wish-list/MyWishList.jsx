@@ -36,7 +36,7 @@ const MyWishList = () => {
     return (
         <Row>
             <Col className="col-md-1"></Col>
-            <Col className="col-md-2">
+            <Col className="col-md-2 bg-light">
                 <Category/>
                 <CustomerSupport/>
             </Col>

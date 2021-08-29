@@ -12,9 +12,9 @@ const Blogdetails = props => {
     const [comments, setComments] = useState([])
     let strp = "";
     let resp = "";
-    const urll = " https://jsonplaceholder.typicode.com/comments"
+    const url = " https://jsonplaceholder.typicode.com/comments"
     useEffect(() => {
-        axios.get(urll, {
+        axios.get(url, {
             params: {
                 _limit: 10
             }
