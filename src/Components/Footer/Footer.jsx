@@ -12,6 +12,8 @@ import {
     withRouter
 } from "react-router-dom";
 import OurJourney from '../../pages/journey/OurJourney';
+import { FaTwitterSquare } from "react-icons/fa";
+
 
 const Footer = () => {
     return (
@@ -45,8 +47,9 @@ const Footer = () => {
                               <h4>Follow Us</h4>
                               <ul style={{listStyleType:"none"}}>
                                   <li><ImFacebook2/> Username</li>
-                                  <li>Username</li>
-                                  <li>Username</li>
+                                  <li><i className="fab fa-instagram"></i>Username</li>
+                                  <li ><FaTwitterSquare  className = "twitterIcon"/>Username</li>
+
 
                               </ul>
                           </div>

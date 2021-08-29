@@ -1,7 +1,3 @@
-.BackColor{
-    background-color: blueviolet;
-}
-
 .HeaderContainer{
     width:100%;
     display: flex;
@@ -21,4 +17,9 @@
 li{
     list-style: none;
     padding-left: 20px;
+}
+
+.twitterIcon{
+    background-color: #00acee;
+
 }

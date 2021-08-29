@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {lazy,Suspense} from 'react';
 import './Utils.css'
-import { useState } from 'react';
+import {useState } from 'react';
 import Home from '../../pages/home/Home';
 import { HiOutlineUser } from "react-icons/hi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -12,8 +12,8 @@ import {
     Link,
     withRouter
 } from "react-router-dom";
-import Products from '../../pages/products/Products';
-import Albums from '../../pages/albums/Albums';
+// import Products from '../../pages/products/Products';
+// import Albums from '../../pages/albums/Albums';
 import MyCart from '../../pages/my-cart/MyCart';
 import LoginPage from '../Login/LoginPage';
 import MyWishList from '../../pages/my-wish-list/MyWishList';
@@ -21,10 +21,24 @@ import Blog from '../../pages/blog/Blog';
 import OurJourney from '../../pages/journey/OurJourney';
 import blogdetails from '../../pages/blog/Blogdetails';
 import Blogdetails from '../../pages/blog/Blogdetails';
+import Err_Boundary from '../ErrorBoundary/ErrorBoundary';
 import ProductDetails from '../ProductList/ProductDetails';
 
 
-const Header = () => {
+//Lazy loading
+const Albums = lazy(() => 
+{ 
+   return new Promise(resolve => setTimeout(resolve, 2 * 1000))
+  .then(() => import('../../pages/albums/Albums')) });
+
+  const Products = lazy(() => 
+{ 
+   return new Promise(resolve => setTimeout(resolve, 1 * 1000))
+  .then(() => import('../../pages/products/Products')) });
+
+
+
+    const Header = () => {
     const [hmbgicon, sethmbgIcon] = useState(false);
     let headertype = "topnav";
     const [toggleCls, settoggleCls] = useState(true);
@@ -32,8 +46,8 @@ const Header = () => {
       
     return (
         <>
+        <Suspense fallback = {<div>Loading....please wait</div>}>
             <withRouter>
-
                 <div className={toggleCls === true ? "topnav" : "topnav responsive"} id="myTopnav">
                     <Link to="/"><h4><span class="badge badge-secondary" style={{ color: "black", backgroundColor: "#04AA6D" }}>Logo</span></h4></Link>
                     <div className="topnav-right">
@@ -54,8 +68,8 @@ const Header = () => {
                     </div>
 
                 </div>
-
             </withRouter>
+            </Suspense>
         </>
     );
 }
