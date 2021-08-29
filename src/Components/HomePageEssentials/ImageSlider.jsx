@@ -7,56 +7,37 @@ import banner4 from '../../Assets/Images/banner_4.jpeg'
 import './imageSlider.css'
 
 const ImageSlider = () => {
-    return (
-   <>
-    <div className='container-fluid' >  
+  return (
+    <>
+      <div className='container-fluid' >
+        <Carousel>
+          <Carousel.Item style={{ 'height': "400px" }} >
+            <img style={{ 'height': "400px" }}
+              className="d-block w-100"
+              src={banner1} />
+          </Carousel.Item>
 
-                          <Carousel>  
-                         <Carousel.Item style={{'height':"400px"}} >  
+          <Carousel.Item style={{ 'height': "400px" }}>
+            <img style={{ 'height': "400px" }}
+              className="d-block w-100"
+              src={banner2} ></img>
+          </Carousel.Item>
 
-                         <img style={{'height':"400px"}}  
+          <Carousel.Item style={{ 'height': "400px" }}>
+            <img style={{ 'height': "400px" }}
+              className="d-block w-100"
+              src={banner3} ></img>
+          </Carousel.Item>
 
-                         className="d-block w-100"  
-
-                        src={banner1}  />  
-                                 </Carousel.Item>  
-
-                                 <Carousel.Item style={{'height':"400px"}}>  
-
-                                 <img style={{'height':"400px"}}  
-
-                                   className="d-block w-100"  
-
-                                    src={banner2} ></img>  
-
-                                         </Carousel.Item>  
-
-                                         <Carousel.Item style={{'height':"400px"}}>  
-
-                                 <img style={{'height':"400px"}}  
-
-                                   className="d-block w-100"  
-
-                                    src={banner3} ></img>  
-
-                                         </Carousel.Item>  
-
-                                         <Carousel.Item style={{'height':"400px"}}>  
-
-                                 <img style={{'height':"400px"}}  
-
-                                   className="d-block w-100"  
-
-                                    src={banner4} ></img>  
-
-                                         </Carousel.Item>  
-
-
-
-</Carousel> 
-</div>
+          <Carousel.Item style={{ 'height': "400px" }}>
+            <img style={{ 'height': "400px" }}
+              className="d-block w-100"
+              src={banner4} ></img>
+          </Carousel.Item>
+        </Carousel>
+      </div>
     </>
-    );
+  );
 }
 
 

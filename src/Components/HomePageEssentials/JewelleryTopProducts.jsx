@@ -9,8 +9,6 @@ import './card.css'
 const JewelleryTopProducts = () => {
     const  [posts,setPosts] = useState([])
     useEffect(() => {
-        // GET request using axios inside useEffect React hook
-        // limit = 5
         axios.get("https://fakestoreapi.com/products/category/jewelery",{params:{
             limit: 4}})
             .then(response => {

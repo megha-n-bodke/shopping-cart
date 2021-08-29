@@ -6,15 +6,6 @@
     align-content:center;
 }
 
-/* .Circle{
-        width: 80px;
-        height: 80px;
-        background:#C4C4C4;
-        border-radius: 50%;
-        margin-left: 20px;        
-      
-} */
-
 .block {
     
     text-align: center;
@@ -30,11 +21,9 @@
     display: table;
     margin: 20px auto;
 }
-
 .Center{
     align-content:center;
 }
-
 
 .Display{
     display: flex;

@@ -22,7 +22,7 @@ const CartProductList = () => {
                 <Card className="top-buffer">
                     <Row>
                         <Col md={3}>
-                            <Card.Img src={product.image}/>
+                            <Card.Img src={product.image} />
                         </Col>
                         <Col md={9}>
                             <Card.Body>
@@ -30,7 +30,6 @@ const CartProductList = () => {
                                 <Card.Text>
                                     {product.description.substring(0, 50)}
                                 </Card.Text>
-
                                 <Row className="justify-content-md-start">
                                     <Col xs lg="3">
                                         <select className="form-select" aria-label="Default select example">
@@ -60,18 +59,18 @@ const CartProductList = () => {
                                         </ButtonGroup>
                                     </Col>
                                 </Row>
-                                <hr/>
+                                <hr />
                                 <Row>
                                     <Col>
                                         <div>{currency}{product.price}</div>
                                     </Col>
                                     <Col className="justify-content-end d-flex">
-                                                <Button className="btn" variant="light"
-                                                        onClick={() => dispatch(deleteFromCart(product.id))}>Remove</Button>
-                                                <Button className="btn"  variant="warning" onClick={() => {
-                                                    dispatch(placeOrder());
-                                                    history.push('/products');
-                                                }}>Place Order</Button>
+                                        <Button className="btn" variant="light"
+                                            onClick={() => dispatch(deleteFromCart(product.id))}>Remove</Button>
+                                        <Button className="btn" variant="warning" onClick={() => {
+                                            dispatch(placeOrder());
+                                            history.push('/products');
+                                        }}>Place Order</Button>
                                     </Col>
                                 </Row>
                             </Card.Body>

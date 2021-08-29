@@ -6,7 +6,7 @@ import { Button, CloseButton, Col, Image, Row } from 'react-bootstrap';
 import { addToCart, deleteFromCart, placeOrder } from '../my-cart/MyCartAction';
 import { deleteFromWishList } from './MyWishListAction';
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import  "./myWishlist.css";
+import "./myWishlist.css";
 
 const MyWishList = () => {
     const dispatch = useDispatch();
@@ -18,17 +18,18 @@ const MyWishList = () => {
     });
     const wishlistItemList = wishlistItems.map((product, index) => {
         return (
-
             <div className="col-sm-3" key={index}>
-             <div  className="col-sm-12 shadow-lg p-3 mb-5 bg-white rounded "> 
-                <AiOutlineCloseCircle className="expand-position-for-picture" onClick={() => dispatch(deleteFromWishList(product.id))}/>
-                <Image className="imgresponsive" src={product.image} />
-                <div  className="text-truncate">{product.title}</div>
-                <div  className="text-truncate">{product.description}</div>
-                <div>{currency}{product.price}</div>
-                <Button className="btn btn-light" onClick={() => {dispatch(addToCart(product.id, 1));
-                    dispatch(deleteFromWishList(product.id))}}>Add to cart</Button>
-            </div>
+                <div className="col-sm-12 shadow-lg p-3 mb-5 bg-white rounded ">
+                    <AiOutlineCloseCircle className="expand-position-for-picture" onClick={() => dispatch(deleteFromWishList(product.id))} />
+                    <Image className="imgresponsive" src={product.image} />
+                    <div className="text-truncate">{product.title}</div>
+                    <div className="text-truncate">{product.description}</div>
+                    <div>{currency}{product.price}</div>
+                    <Button className="btn btn-light" onClick={() => {
+                        dispatch(addToCart(product.id, 1));
+                        dispatch(deleteFromWishList(product.id))
+                    }}>Add to cart</Button>
+                </div>
             </div>
         );
     });
@@ -37,8 +38,8 @@ const MyWishList = () => {
         <Row>
             <Col className="col-md-1"></Col>
             <Col className="col-md-2 bg-light">
-                <Category/>
-                <CustomerSupport/>
+                <Category />
+                <CustomerSupport />
             </Col>
             <Col className="col-md-8">
                 <h3>My wishlist {wishlistItemList.length} items</h3>

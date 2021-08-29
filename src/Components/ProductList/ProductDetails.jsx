@@ -5,15 +5,9 @@ import { Button, Col, Row } from 'react-bootstrap';
 import Category from '../Category/Category';
 import CustomerSupport from '../CustomerSupport/CustomerSupport';
 import { useHistory } from 'react-router-dom';
-import SortByAction from '../UserPreferences/SortByAction';
 import { addToCart } from '../../pages/my-cart/MyCartAction';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToWishList } from '../../pages/my-wish-list/MyWishListAction';
-import { loadProducts } from './ProductListAction';
-import { setupProductsPagination } from './ProductPaginatorAction';
 import "./product.css";
-import { BsHeart } from "react-icons/bs";
-import { FcLike } from "react-icons/fc";
 
 
 const ProductDetails = props =>{

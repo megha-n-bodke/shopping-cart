@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
 import "./blog.css";
 
 const Blogdetails = props => {
@@ -30,7 +29,6 @@ const Blogdetails = props => {
 
     return <Row>
         <Col className="col-md-1"></Col>
-
         <Col className="col-md-2">
             <Col className="col-md-12  shadow-lg p-3 mb-5 bg-white rounded">
                 <Row>
@@ -39,7 +37,6 @@ const Blogdetails = props => {
                         Most Popular Post
                         <hr />
                     </Col>
-
                     <Col className="col-md-12">
 
                         Most Popular Comments
@@ -54,30 +51,27 @@ const Blogdetails = props => {
                 <Row>
                     <Col className="col-md-11">
 
-                        <h5>{post.title}</h5><br/>
+                        <h5>{post.title}</h5><br />
                         <p>{post.body}</p>
                     </Col>
                 </Row>
                 <Row>
                     <Col className="col-md-11">
-                    <div className="input-group mb-3">
-                        <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                        <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-                        </div>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                            <div className="input-group-append">
+                                <button className="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                            </div>
                         </div>
                     </Col>
                 </Row>
 
                 <Row>
                     <Col className="col-md-11">
-
                         {comments.map(comment => {
                             console.log(comment.postId === post.id);
-                            {/* var name = email.substring(0, email.lastIndexOf("@")); */}
-
-                            if(comment.postId === post.id)
-                            return  <Row className="top-buffer">
+                            if (comment.postId === post.id)
+                                return <Row className="top-buffer">
                                     <Col className="col-md-2">{comment.email.substring(0, comment.email.lastIndexOf("@"))}</Col>
                                     <Col className="col-md-10">
                                         <h4>{comment.name}</h4>
@@ -86,7 +80,6 @@ const Blogdetails = props => {
                                 </Row>
                         }
                         )}
-
                     </Col>
                 </Row>
             </Container>

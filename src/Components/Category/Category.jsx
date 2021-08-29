@@ -9,7 +9,6 @@ const Category = () => {
     const filterBy = useSelector(state => state.userPreferences.filterBy);
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        // https://fakestoreapi.com/products/categories
         axios.get("https://fakestoreapi.com/products/categories")
             .then(response => {
                 console.log(response.data);
@@ -20,19 +19,19 @@ const Category = () => {
         let active = filterBy === category;
         return (
             <ListGroup.Item key={index}
-                            href={"#" + category}
-                            className="text-capitalize"
-                            onClick={() => dispatch(filerBy(category))}
-                            active={active}
+                href={"#" + category}
+                className="text-capitalize"
+                onClick={() => dispatch(filerBy(category))}
+                active={active}
             >{category}</ListGroup.Item>
         );
     });
     return (
         <div>
             <h5>Category</h5>
-            <hr/>
+            <hr />
             <ListGroup variant="flush">
-            { categoryList }
+                {categoryList}
             </ListGroup>
         </div>
     )

@@ -5,7 +5,7 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { AiOutlineLock, AiFillFacebook, } from "react-icons/ai";
 import { HiOutlineUser } from "react-icons/hi";
 import { FcGoogle } from "react-icons/fc";
-import { FaTwitterSquare,FaRegUser, FaFontAwesome } from "react-icons/fa";
+import { FaTwitterSquare, FaRegUser, FaFontAwesome } from "react-icons/fa";
 import image from '../../Assets/Images/WelcomeImage.png'
 import axios from 'axios';
 import { useHistory } from 'react-router';
@@ -50,80 +50,79 @@ const LoginPage = () => {
     return (
         <Container>
             <Row>
-                <Col lg={6} sm={{order:1}} className="loginBackground">
-                    <Container className="justify-content:flex-"> 
+                <Col lg={6} sm={{ order: 1 }} className="loginBackground">
+                    <Container className="justify-content:flex-">
                         <Row>
-                        <div className="col-md-2"></div>
+                            <div className="col-md-2"></div>
                             <div className="col-md-8">
-                            <Row>
-                            <h1 className="text-center">Login</h1>
-                                <form onSubmit={handleSubmit(onSubmit)} className="form-horizontal">
-                                  
-                                    <div className="form-group">
-                    <div className="col-xs-6 col-xs-offset-3">
-                    <p>{error ? "username or password is incorrect" : ""}</p>
-                                    <input type="text"
-                                        className="inputText form-control"
-                                        placeholder="Enter Username "
-                                        name="username"  {...register("username", { required: true, pattern: /^[a-z0-9_]/ })}>
-                                    </input>
-                                    </div>
-                                    </div>
-                                    
-                                    <div className="form-group">
-                    <div className="col-xs-6 col-xs-offset-3">
-                    <p className="errors">{errors.username?.type === 'required' && "username is required"}</p>
-                                    <p className="errors">{errors.username?.type === "pattern" && "Invalid username"}</p>
+                                <Row>
+                                    <h1 className="text-center">Login</h1>
+                                    <form onSubmit={handleSubmit(onSubmit)} className="form-horizontal">
 
-                                    <input type="password"
-                                        className="inputText form-control"
-                                        placeholder="Enter Password "
-                                        name="password"  {...register("password", { required: true })}>
-                                    </input>
-                                    </div></div>
+                                        <div className="form-group">
+                                            <div className="col-xs-6 col-xs-offset-3">
+                                                <p>{error ? "username or password is incorrect" : ""}</p>
+                                                <input type="text"
+                                                    className="inputText form-control"
+                                                    placeholder="Enter Username "
+                                                    name="username"  {...register("username", { required: true, pattern: /^[a-z0-9_]/ })}>
+                                                </input>
+                                            </div>
+                                        </div>
 
-                                    <div className="form-group text-center">
-                                        <p className="errors">{errors.password?.type === 'required' && "password is required"}</p>
-                                        <button type="submit" className="btn btn-light">Login</button>
-                                    </div>
+                                        <div className="form-group">
+                                            <div className="col-xs-6 col-xs-offset-3">
+                                                <p className="errors">{errors.username?.type === 'required' && "username is required"}</p>
+                                                <p className="errors">{errors.username?.type === "pattern" && "Invalid username"}</p>
 
-                                </form>
-                            </Row>
-                            <Row>
-                                <div  className="socialMediaLogin text-center">
-                                    <p>Or</p>
-                                    <p>Login with</p>
-                                    <div className="socialMediaIcons">
-                                        <ul >
-                                            <li className="fbIcon socialLi"><AiFillFacebook /></li>
-                                            <li className="googleIcon socialLi"><FcGoogle /></li>
-                                            <li className="twitterIcon socialLi"><FaTwitterSquare /></li>
-                                        </ul>
+                                                <input type="password"
+                                                    className="inputText form-control"
+                                                    placeholder="Enter Password "
+                                                    name="password"  {...register("password", { required: true })}>
+                                                </input>
+                                            </div></div>
+
+                                        <div className="form-group text-center">
+                                            <p className="errors">{errors.password?.type === 'required' && "password is required"}</p>
+                                            <button type="submit" className="btn btn-light">Login</button>
+                                        </div>
+
+                                    </form>
+                                </Row>
+                                <Row>
+                                    <div className="socialMediaLogin text-center">
+                                        <p>Or</p>
+                                        <p>Login with</p>
+                                        <div className="socialMediaIcons">
+                                            <ul >
+                                                <li className="fbIcon socialLi"><AiFillFacebook /></li>
+                                                <li className="googleIcon socialLi"><FcGoogle /></li>
+                                                <li className="twitterIcon socialLi"><FaTwitterSquare /></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                            </Row>
+                                </Row>
                             </div>
-                        
+
                             <div className="col-md-2"></div>
                         </Row>
                         <Row>
-                        <div className="flex-end text-center">
-                                <p>Not a member <Link to="/register" className = "register-link register">register</Link></p>
-                        </div>
+                            <div className="flex-end text-center">
+                                <p>Not a member <Link to="/register" className="register-link register">register</Link></p>
+                            </div>
                         </Row>
                     </Container>
                 </Col>
-                <Col lg={6} sm={{order:2}} className="text-center">
+                <Col lg={6} sm={{ order: 2 }} className="text-center">
                     <Row>
-                    <Col lg={10}>
-                    <button className="btn btn-warning">Logo</button>
-                    </Col>
+                        <Col lg={10}>
+                            <button className="btn btn-warning">Logo</button>
+                        </Col>
                     </Row>
 
                     <Row>
-                    
-                    <h1>Welcome G Store</h1>
-                    <div className="img-fluid"><img src={image} ></img></div>
+                        <h1>Welcome G Store</h1>
+                        <div className="img-fluid"><img src={image} ></img></div>
                     </Row>
                 </Col>
             </Row>

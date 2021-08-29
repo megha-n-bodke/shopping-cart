@@ -7,21 +7,19 @@ import JewelleryTopProducts from './JewelleryTopProducts';
 
 const TopProducts = () => {
     return (
-       
-    <Tabs defaultActiveKey="men" id="uncontrolled-tab-example" className="mb-3">
-        <Tab eventKey="men" title="Men">
-        <Row>
-            <MenTopProducts />
-            </Row>
-        </Tab>
-        <Tab eventKey="women" title="Women">
-            <WomenTopProduct />
-        </Tab>
-        <Tab eventKey="jewellery" title="Jwellery" >
-            <JewelleryTopProducts />
-        </Tab>
-    </Tabs>
-    
+        <Tabs defaultActiveKey="men" id="uncontrolled-tab-example" className="mb-3">
+            <Tab eventKey="men" title="Men">
+                <Row>
+                    <MenTopProducts />
+                </Row>
+            </Tab>
+            <Tab eventKey="women" title="Women">
+                <WomenTopProduct />
+            </Tab>
+            <Tab eventKey="jewellery" title="Jwellery" >
+                <JewelleryTopProducts />
+            </Tab>
+        </Tabs>
     )
 }
 
