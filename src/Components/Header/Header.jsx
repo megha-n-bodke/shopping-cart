@@ -21,6 +21,7 @@ import OurJourney from '../../pages/journey/OurJourney';
 import blogdetails from '../../pages/blog/Blogdetails';
 import Blogdetails from '../../pages/blog/Blogdetails';
 import Err_Boundary from '../ErrorBoundary/ErrorBoundary';
+import ProductDetails from '../ProductList/ProductDetails';
 
 
 //Lazy loading
@@ -79,6 +80,8 @@ const Albums = lazy(() =>
                     <Route exact path="/blog" component={Blog} />
                     <Route exact path="/journey" component={OurJourney} />
                     <Route exact path="/blogdetails" component={Blogdetails} />
+                    <Route exact path="/productdetails" component={ProductDetails} />
+
                 </Switch>
             </Router>
             </Suspense>

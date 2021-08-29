@@ -20,7 +20,8 @@ const CustomerSupport = () => {
     });
     return (
         <div>
-            <h3>Customer Support</h3>
+            <h5>Customer Support</h5>
+            <hr/>
             { supportList }
         </div>
     )

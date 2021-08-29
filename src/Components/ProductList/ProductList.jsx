@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import { Button, Image, Row } from 'react-bootstrap';
 import SortByAction from '../SortBy/SortByAction';
 import { addToCart } from '../../pages/my-cart/MyCartAction';
@@ -15,6 +16,7 @@ import { FcLike } from "react-icons/fc";
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const sortBy = useSelector(state => state.userPreferences.sortBy);
     const pagingInfo= useSelector(state => state.productsPagination);
@@ -69,7 +71,7 @@ const ProductList = () => {
         return (
             <div key={index} className="col-sm-3">
                 <Image className="imgresponsive" src={product.image} />
-                <div className="text-truncate">{product.title}</div>
+                <div onClick={()=> history.push({pathname:"/productdetails/",state: {product},}) }className="text-truncate">{product.title}</div>
                 <div className="text-truncate">{product.description}</div>
                 <div>{currency}{product.price}</div>
                 <Button onClick={() => dispatch(addToCart(product.id, 1))}>Add to Cart</Button>
