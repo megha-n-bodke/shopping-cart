@@ -65,14 +65,14 @@ const Albums = lazy(() =>
         <Suspense fallback = {<div>Loading....please wait</div>}>
             <withRouter>
                 <div className={toggleCls === true ? "topnav" : "topnav responsive"} id="myTopnav">
-                    <Link to="/"><h4><span class="badge badge-secondary" style={{ color: "black", backgroundColor: "#04AA6D" }}>Logo</span></h4></Link>
+                    <Link to="/"><p className = "logo">Logo</p></Link>
                     <div className="topnav-right">
-                        <Link to="/" className="active">Home</Link>
-                        <Link to="/products">Products</Link>
-                        <Link to="/albums">Album</Link>
-                        <Link to="/blog">Blog</Link>
+                        <Link to="/" className="active link">Home</Link>
+                        <Link to="/products" className = "link">Products</Link>
+                        <Link to="/albums" className = "link">Album</Link>
+                        <Link to="/blog" className = "link">Blog</Link>
                         {/* <Link to="/journey">Our Journey</Link> */}
-                        <Link to="/my-cart">
+                        <Link to="/my-cart" className = "link">
                             {/* TODO Fix colour and position */}
                             
                             <span class="badge cartItem"> {Object.keys(cart).length}</span>
@@ -80,7 +80,7 @@ const Albums = lazy(() =>
                             <AiOutlineShoppingCart>
                             </AiOutlineShoppingCart>
                         </Link>
-                        <Link> {loginMenu} </Link>
+                        <Link className = "link"> {loginMenu} </Link>
                         <a className="icon" onClick={() => {
                             settoggleCls(!toggleCls);
                         }}>

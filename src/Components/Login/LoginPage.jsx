@@ -53,7 +53,6 @@ const LoginPage = () => {
                 <Col lg={6} sm={{order:1}} className="loginBackground">
                     <Container className="justify-content:flex-"> 
                         <Row>
-                     
                         <div className="col-md-2"></div>
                             <div className="col-md-8">
                             <Row>
@@ -109,7 +108,7 @@ const LoginPage = () => {
                         </Row>
                         <Row>
                         <div className="flex-end text-center">
-                                <p>Not a member <Link to="/register">register</Link></p>
+                                <p>Not a member <Link to="/register" className = "register-link register">register</Link></p>
                         </div>
                         </Row>
                     </Container>

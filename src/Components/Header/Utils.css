@@ -87,6 +87,13 @@ button{
     }
   }
 
+  .logo{
+     color: black;
+      background-Color: #F7F1D4;
+      padding:10px;
+      border-radius:5px
+  }
+
 .menuLink ul{
     height:20px;
     display:flex;
@@ -115,3 +122,9 @@ button{
   background-color: red;
   border-radius: 50px;
 }
+
+.topnav-right .link:hover{
+  background-color:#F7F1D4;
+  border-radius: 5px;
+}
+
