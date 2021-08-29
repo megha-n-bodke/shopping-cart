@@ -2,7 +2,12 @@ import React from 'react';
 import PriceDetails from '../../Components/PriceDetails/PriceDetails';
 import CartProductList from '../../Components/CartProductList/CartProductList';
 import { useSelector } from 'react-redux';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Dropdown, Row } from 'react-bootstrap';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import $ from 'jquery'; 
+import Popper from 'popper.js';
 
 const MyCart = () => {
     const cart = useSelector(state => state.cart);
@@ -10,6 +15,7 @@ const MyCart = () => {
         return (
             <Container>
                 <h2 className="text-center">Your cart is empty!!!</h2>
+              
             </Container>
         );
     } else {
@@ -17,6 +23,7 @@ const MyCart = () => {
             <Container>
                 <Row>
                     <Col md={9}>
+                    
                         <CartProductList></CartProductList>
                     </Col>
                     <Col md={3}>

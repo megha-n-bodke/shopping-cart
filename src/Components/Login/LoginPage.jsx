@@ -62,8 +62,6 @@ const LoginPage = () => {
                                     <div className="form-group">
                     <div className="col-xs-6 col-xs-offset-3">
                     <p>{error ? "username or password is incorrect" : ""}</p>
-                                    <HiOutlineUser className="user" />
-                                    <i class="glyphicon glyphicon-user"></i>
                                     <input type="text"
                                         className="inputText form-control"
                                         placeholder="Enter Username "
@@ -77,8 +75,6 @@ const LoginPage = () => {
                     <p className="errors">{errors.username?.type === 'required' && "username is required"}</p>
                                     <p className="errors">{errors.username?.type === "pattern" && "Invalid username"}</p>
 
-
-                                    <AiOutlineLock className="user" />
                                     <input type="password"
                                         className="inputText form-control"
                                         placeholder="Enter Password "

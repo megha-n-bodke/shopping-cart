@@ -15,6 +15,7 @@ import Blog from './pages/blog/Blog';
 import OurJourney from './pages/journey/OurJourney';
 import Blogdetails from './pages/blog/Blogdetails';
 import ProductDetails from './Components/ProductList/ProductDetails';
+import { Col, Row } from 'react-bootstrap';
 
 
 function App() {
@@ -22,7 +23,11 @@ function App() {
     <div>
     
     <BrowserRouter>
-    <Header/>
+    <Row>
+    <Col>
+     <Header/>
+    </Col>
+    </Row>
 
     <Switch>
                     <Route exact path="/" component={Home} />
@@ -37,7 +42,12 @@ function App() {
                     <Route exact path="/productdetails" component={ProductDetails} />
 
                 </Switch>
+   
+                <Row>
+    <Col>
     <Footer/>
+    </Col>
+    </Row>
     </BrowserRouter>
     
     </div>
