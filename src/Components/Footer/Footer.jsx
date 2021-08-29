@@ -5,6 +5,8 @@ import { GrLocation } from "react-icons/gr";
 import { GiLargeDress } from "react-icons/gi";
 import { IoShirtOutline } from "react-icons/io5";
 import { ImFacebook2 } from "react-icons/im";
+import { FaTwitterSquare } from "react-icons/fa";
+
 
 
 
@@ -41,8 +43,9 @@ const Footer = () => {
                               <h4>Follow Us</h4>
                               <ul style={{listStyleType:"none"}}>
                                   <li><ImFacebook2/> Username</li>
-                                  <li>Username</li>
-                                  <li>Username</li>
+                                  <li><i className="fab fa-instagram"></i>Username</li>
+                                  <li ><FaTwitterSquare  className = "twitterIcon"/>Username</li>
+
 
                               </ul>
                           </div>
