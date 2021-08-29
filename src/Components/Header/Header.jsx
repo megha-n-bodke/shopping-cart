@@ -9,7 +9,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    withRouter
 } from "react-router-dom";
 import Products from '../../pages/products/Products';
 import Albums from '../../pages/albums/Albums';
@@ -28,10 +29,10 @@ const Header = () => {
     let headertype = "topnav";
     const [toggleCls, settoggleCls] = useState(true);
 
-
+      
     return (
         <>
-            <Router>
+            <withRouter>
 
                 <div className={toggleCls === true ? "topnav" : "topnav responsive"} id="myTopnav">
                     <Link to="/"><h4><span class="badge badge-secondary" style={{ color: "black", backgroundColor: "#04AA6D" }}>Logo</span></h4></Link>
@@ -40,7 +41,7 @@ const Header = () => {
                         <Link to="/products">Products</Link>
                         <Link to="/albums">Album</Link>
                         <Link to="/blog">Blog</Link>
-                        <Link to="/journey">Our Journey</Link>
+                        {/* <Link to="/journey">Our Journey</Link> */}
                         <Link to="/my-cart">
                             <AiOutlineShoppingCart />
                         </Link>
@@ -54,20 +55,7 @@ const Header = () => {
 
                 </div>
 
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/login" component={LoginPage} />
-                    <Route exact path="/products" component={Products} />
-                    <Route exact path="/my-cart" component={MyCart} />
-                    <Route exact path="/my-wish-list" component={MyWishList} />
-                    <Route exact path="/albums" component={Albums} />
-                    <Route exact path="/blog" component={Blog} />
-                    <Route exact path="/journey" component={OurJourney} />
-                    <Route exact path="/blogdetails" component={Blogdetails} />
-                    <Route exact path="/productdetails" component={ProductDetails} />
-
-                </Switch>
-            </Router>
+            </withRouter>
         </>
     );
 }

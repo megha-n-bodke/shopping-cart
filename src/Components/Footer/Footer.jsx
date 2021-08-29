@@ -5,13 +5,18 @@ import { GrLocation } from "react-icons/gr";
 import { GiLargeDress } from "react-icons/gi";
 import { IoShirtOutline } from "react-icons/io5";
 import { ImFacebook2 } from "react-icons/im";
-
-
-
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    withRouter
+} from "react-router-dom";
+import OurJourney from '../../pages/journey/OurJourney';
 
 const Footer = () => {
     return (
+
+        <withRouter>
        <div>
            <div className = "container">
                      <div className = "row">
@@ -29,11 +34,10 @@ const Footer = () => {
                           </div>
                           <div className = "col-md-4 col-sm-12 shadow p-3 mb-5 bg-white rounded ">
                               <h4>Important Link</h4>
-                              <ul style={{listStyleType:"none"}}>
+                              <ul className="menuLink" style={{listStyleType:"none"}}>
                                   <li><IoShirtOutline/> Men's Clothing</li>
                                   <li><GiLargeDress/> Womens Clothing</li>
-                                  <li>Our Journey</li>
-
+                                  <li><Link className="nodec" to="/journey">Our Journey</Link></li>
                               </ul>
                           </div>
 
@@ -49,8 +53,9 @@ const Footer = () => {
 
                       </div>
                       </div>
-
                       </div>
+
+            </withRouter>
     )
 }
 

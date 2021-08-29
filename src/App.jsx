@@ -12,16 +12,34 @@ import MyCart from './pages/my-cart/MyCart';
 import MyWishList from './pages/my-wish-list/MyWishList';
 import Albums from './pages/albums/Albums';
 import Blog from './pages/blog/Blog';
+import OurJourney from './pages/journey/OurJourney';
+import Blogdetails from './pages/blog/Blogdetails';
+import ProductDetails from './Components/ProductList/ProductDetails';
 
 
 function App() {
   return (
     <div>
-    <Header/>
+    
     <BrowserRouter>
+    <Header/>
 
-    </BrowserRouter>
+    <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/login" component={LoginPage} />
+                    <Route exact path="/products" component={Products} />
+                    <Route exact path="/my-cart" component={MyCart} />
+                    <Route exact path="/my-wish-list" component={MyWishList} />
+                    <Route exact path="/albums" component={Albums} />
+                    <Route exact path="/blog" component={Blog} />
+                    <Route exact path="/journey" component={OurJourney} />
+                    <Route exact path="/blogdetails" component={Blogdetails} />
+                    <Route exact path="/productdetails" component={ProductDetails} />
+
+                </Switch>
     <Footer/>
+    </BrowserRouter>
+    
     </div>
   );
 }

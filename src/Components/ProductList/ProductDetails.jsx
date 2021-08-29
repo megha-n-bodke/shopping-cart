@@ -59,8 +59,22 @@ const ProductDetails = props =>{
                         {comments.title}<br/>
                         {comments.category}<br/>
                         {comments.price}<br/>
-                        <Button onClick={() => dispatch(addToCart(product.id, 1))}>Add to Cart</Button>
-
+                        <Row>
+                            <Col className="col-md-1"></Col>
+                            <Col className="col-md-2">
+                            <br/>
+                                                <select className="form-select" aria-label="Default select example">
+                                                    <option value="S">Size : S</option>
+                                                    <option value="M">Size : M</option>
+                                                    <option value="L">Size : L</option>
+                                                    <option value="XL">Size : XL</option>
+                                                </select>
+                            </Col>
+                            <Col className="col-md-1"></Col>
+                            <Col className="col-md-8"> <br/><Button onClick={() => dispatch(addToCart(product.id, 1))}>Add to Cart</Button>
+</Col>
+                        </Row>
+                        
                         <hr/>
                         </Col>
                     </Row>

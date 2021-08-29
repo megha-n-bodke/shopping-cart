@@ -13,6 +13,12 @@
 
 }
 
+button{
+  background-color: #f7f1d4 !important;
+  color: #0a0909 !important;
+  border-color: #f7f1d4 !important;
+}
+
 .logo{
     font-size: 18px;
 }
@@ -48,8 +54,8 @@
   
   /* Add an active class to highlight the current page */
   .topnav a.active {
-    background-color: #04AA6D;
-    color: white;
+    background-color: #f7f1d4;
+    color: black;
   }
   
   /* Hide the link that should open and close the topnav on small screens */
@@ -87,6 +93,9 @@
     margin-top: 10px;
     justify-content: flex-end;
 }
+
+.nodec{ text-decoration: none !important;
+  color:black;}
 
 .menuLink ul li{
     list-style: none;
