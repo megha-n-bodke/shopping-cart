@@ -6,7 +6,7 @@ import { AiOutlineLock, AiFillFacebook, } from "react-icons/ai";
 import { HiOutlineUser } from "react-icons/hi";
 import { FcGoogle } from "react-icons/fc";
 import { FaTwitterSquare,FaRegUser, FaFontAwesome } from "react-icons/fa";
-import image from '../../Assets/Images/welcomePage.png'
+import image from '../../Assets/Images/WelcomeImage.png'
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
