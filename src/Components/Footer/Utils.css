@@ -1,6 +1,7 @@
-.HeaderContainer{
+.footerContainer{
     width:100%;
     display: flex;
+    margin-top: auto;
 }
 
 .MenuLink{

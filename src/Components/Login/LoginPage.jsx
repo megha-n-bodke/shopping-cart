@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './Login.css'
 import { useForm } from 'react-hook-form';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { AiOutlineLock, AiFillFacebook, } from "react-icons/ai";
 import { HiOutlineUser } from "react-icons/hi";
 import { FcGoogle } from "react-icons/fc";
-import { FaTwitterSquare } from "react-icons/fa";
+import { FaTwitterSquare,FaRegUser, FaFontAwesome } from "react-icons/fa";
 import image from '../../Assets/Images/welcomePage.png'
 import axios from 'axios';
 import { useHistory } from 'react-router';

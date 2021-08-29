@@ -20,7 +20,7 @@ const Footer = () => {
 
         <withRouter>
        <div>
-           <div className = "container">
+           <div className = "container footerContainer">
                      <div className = "row">
                           <div className = "col-md-3 col-sm-12">&nbsp;</div>
                      </div>
