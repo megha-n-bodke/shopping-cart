@@ -5,21 +5,22 @@ import { Button, Image, Row } from 'react-bootstrap';
 import SortByAction from '../SortBy/SortByAction';
 import { addToCart } from '../../pages/my-cart/MyCartAction';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToWishList } from '../../pages/my-wish-list/MyWishListAction';
+import { addToWishList, deleteFromWishList } from '../../pages/my-wish-list/MyWishListAction';
 import { loadProducts } from './ProductListAction';
 import { setupProductsPagination } from './ProductPaginatorAction';
 import "./product.css";
 import { BsHeart } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
+import WishListButton from './WishListButton';
 
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const dispatch = useDispatch();
     const history = useHistory();
-
     const sortBy = useSelector(state => state.userPreferences.sortBy);
     const pagingInfo= useSelector(state => state.productsPagination);
+    const wishlist= useSelector(state => state.wishlist);
     useEffect(() => {
         // https://fakestoreapi.com/products
         axios.get("https://fakestoreapi.com/products")
@@ -66,8 +67,21 @@ const ProductList = () => {
 
     let start = (pagingInfo.current_page - 1)  * pagingInfo.items_per_page;
     let productsInView = productsSorted.slice(start, start + pagingInfo.items_per_page);
-    const [toggle, settoggle] = useState(true);
     const productList = productsInView.map((product, index) => {
+        // let likeButton = [];
+        // if (wishlist.find(element => element === product.id)) {
+        //     likeButton.push(
+        //         <Button onClick={() => dispatch(deleteFromWishList(product.id))}>
+        //         <FcLike></FcLike>
+        //         </Button>
+        //     )
+        // } else {
+        //     likeButton.push(
+        //         <Button onClick={() => dispatch(addToWishList(product.id))}>
+        //         <BsHeart></BsHeart>
+        //         </Button>
+        //     )
+        // }
         return (
             <div key={index} className="col-sm-3">
                 <Image className="imgresponsive" src={product.image} />
@@ -75,9 +89,8 @@ const ProductList = () => {
                 <div className="text-truncate">{product.description}</div>
                 <div>{currency}{product.price}</div>
                 <Button onClick={() => dispatch(addToCart(product.id, 1))}>Add to Cart</Button>
-                <Button onClick={() => dispatch(addToWishList(product.id))}>Add to WishList</Button>
-                {toggle ? <BsHeart id={"heart"+product.id}  onClick={()=>{settoggle(!toggle) }} type="button"></BsHeart> 
-                      : <FcLike  onClick={()=>{settoggle(!toggle) }} type="button"></FcLike>}
+                {/*{likeButton}*/}
+                <WishListButton productId={product.id}></WishListButton>
             </div>
         );
     });

@@ -22,9 +22,7 @@ const WomenTopProduct = () => {
     return (
         <div className = "cardContainer">
             {posts.map(post =>(
-              
-                <TopProductCard key={post.id} title={post.title} image={post.image} price={post.price}></TopProductCard>
-                
+                <TopProductCard key={post.id} productId={post.id}  title={post.title} image={post.image} price={post.price}></TopProductCard>
             ))}
         </div>
     );
