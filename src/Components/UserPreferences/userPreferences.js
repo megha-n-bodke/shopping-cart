@@ -1,5 +1,6 @@
 const initialState = {
     sortBy: "PRICE",
+    filterBy: "",
     view: "GRID"
 };
 
@@ -15,6 +16,12 @@ export default function userPreferences(state = initialState, {payload, type}) {
             return {
                 ...state,
                 view: payload
+            }
+        }
+        case "FILTER_BY": {
+            return {
+                ...state,
+                filterBy: payload
             }
         }
         default:

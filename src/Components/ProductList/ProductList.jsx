@@ -2,25 +2,24 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { Button, Image, Row } from 'react-bootstrap';
-import SortByAction from '../SortBy/SortByAction';
+import SortByAction from '../UserPreferences/SortByAction';
 import { addToCart } from '../../pages/my-cart/MyCartAction';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToWishList, deleteFromWishList } from '../../pages/my-wish-list/MyWishListAction';
 import { loadProducts } from './ProductListAction';
 import { setupProductsPagination } from './ProductPaginatorAction';
 import "./product.css";
-import { BsHeart } from "react-icons/bs";
-import { FcLike } from "react-icons/fc";
 import WishListButton from './WishListButton';
+import ProductCardListView from './ProductCardListView';
 
 
 const ProductList = () => {
-    const [products, setProducts] = useState([]);
     const dispatch = useDispatch();
+    const [products, setProducts] = useState([]);
     const history = useHistory();
     const sortBy = useSelector(state => state.userPreferences.sortBy);
+    const filterBy = useSelector(state => state.userPreferences.filterBy);
+    const view = useSelector(state => state.userPreferences.view);
     const pagingInfo= useSelector(state => state.productsPagination);
-    const wishlist= useSelector(state => state.wishlist);
     useEffect(() => {
         // https://fakestoreapi.com/products
         axios.get("https://fakestoreapi.com/products")
@@ -36,6 +35,8 @@ const ProductList = () => {
             });
     }, []);
     const currency = "₹";
+
+    // products sorted
     let productsSorted = null;
     switch (sortBy) {
         case "PRICE": {
@@ -65,34 +66,39 @@ const ProductList = () => {
             });
     }
 
+    // products filtered
+    let productsFiltered = null;
+    switch (filterBy) {
+        case "electronics":
+        case "jewelery":
+        case "men's clothing":
+        case "women's clothing": {
+            productsFiltered = productsSorted.filter(product => product.category === filterBy)
+            break;
+        }
+        default:
+            productsFiltered = productsSorted;
+    }
+
     let start = (pagingInfo.current_page - 1)  * pagingInfo.items_per_page;
-    let productsInView = productsSorted.slice(start, start + pagingInfo.items_per_page);
+    let productsInView = productsFiltered.slice(start, start + pagingInfo.items_per_page);
     const productList = productsInView.map((product, index) => {
-        // let likeButton = [];
-        // if (wishlist.find(element => element === product.id)) {
-        //     likeButton.push(
-        //         <Button onClick={() => dispatch(deleteFromWishList(product.id))}>
-        //         <FcLike></FcLike>
-        //         </Button>
-        //     )
-        // } else {
-        //     likeButton.push(
-        //         <Button onClick={() => dispatch(addToWishList(product.id))}>
-        //         <BsHeart></BsHeart>
-        //         </Button>
-        //     )
-        // }
-        return (
-            <div key={index} className="col-sm-3">
-                <Image className="imgresponsive" src={product.image} />
-                <div onClick={()=> history.push({pathname:"/productdetails/",state: {product},}) }className="text-truncate">{product.title}</div>
-                <div className="text-truncate">{product.description}</div>
-                <div>{currency}{product.price}</div>
-                <Button onClick={() => dispatch(addToCart(product.id, 1))}>Add to Cart</Button>
-                {/*{likeButton}*/}
-                <WishListButton productId={product.id}></WishListButton>
-            </div>
-        );
+        if ( view === "LIST") {
+            return (
+                <ProductCardListView product={product}></ProductCardListView>
+            )
+        } else {
+            return (
+                <div key={index} className="col-sm-3">
+                    <Image className="imgresponsive" src={product.image} />
+                    <div onClick={()=> history.push({pathname:"/productdetails/",state: {product},}) }className="text-truncate">{product.title}</div>
+                    <div className="text-truncate">{product.description}</div>
+                    <div>{currency}{product.price}</div>
+                    <Button onClick={() => dispatch(addToCart(product.id, 1))}>Add to Cart</Button>
+                    <WishListButton key={index} productId={product.id}/>
+                </div>
+            );
+        }
     });
     return (
         <Row>

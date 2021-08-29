@@ -8,7 +8,8 @@ import {
     withRouter
 } from "react-router-dom";
 import { Badge, Button, Dropdown, DropdownButton } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { filerBy } from '../UserPreferences/FilterByAction';
 
 
 //Lazy loading
@@ -24,6 +25,7 @@ const Albums = lazy(() =>
 
 
     const Header = () => {
+    const dispatch = useDispatch();
     const [hmbgicon, sethmbgIcon] = useState(false);
     let headertype = 'topnav';
     const [toggleCls, settoggleCls] = useState(true);
@@ -32,7 +34,6 @@ const Albums = lazy(() =>
     let loginMenu = [];
     if (user.token !== null) {
         loginMenu.push(
-            // TODO
                 <Dropdown>
             <Dropdown.Toggle variant="light">
                 <AiOutlineUser></AiOutlineUser>
@@ -46,7 +47,6 @@ const Albums = lazy(() =>
         );
     } else {
         loginMenu.push(
-            // TODO
             <Dropdown>
                 <Dropdown.Toggle variant="light">
                     <AiOutlineUserSwitch></AiOutlineUserSwitch>
@@ -68,7 +68,7 @@ const Albums = lazy(() =>
                     <Link to="/"><p className = "logo">Logo</p></Link>
                     <div className="topnav-right">
                         <Link to="/" className="active link">Home</Link>
-                        <Link to="/products" className = "link">Products</Link>
+                        <Link to="/products" className = "link" onClick={() => dispatch(filerBy("none"))}>Products</Link>
                         <Link to="/albums" className = "link">Album</Link>
                         <Link to="/blog" className = "link">Blog</Link>
                         {/* <Link to="/journey">Our Journey</Link> */}

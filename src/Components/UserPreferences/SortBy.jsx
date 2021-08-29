@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { DropdownButton, Dropdown } from 'react-bootstrap';
-import userPreferences from '../../Store/reducers/userPreferences';
+import userPreferences from './userPreferences';
 import SortByAction from './SortByAction';
 
 const SortBy = () => {

@@ -4,3 +4,11 @@
     max-height: 200px;
     height: auto;
   }
+
+.pl-1 {
+    padding-left:  50px;
+}
+
+.ml-1 {
+    margin-left:  50px;
+}

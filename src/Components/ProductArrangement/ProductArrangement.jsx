@@ -9,18 +9,17 @@ const ProductArrangement = () => {
     const label = view === "GRID" ? "Grid" : "List";
     const listView = view === "GRID";
     return (
-        <>
             <ToggleButton
                 id="toggle-check"
                 type="checkbox"
                 checked= {listView}
                 value= {view}
+                variant={'light'}
                 onChange={(e) =>
                     dispatch(ProductArrangementAction(e.currentTarget.value === "GRID" ? "LIST" : "GRID" ))}
             >
-                {label}
+                {view === "GRID" ? <i className="fas fa-list"/> : <i className="fas fa-th"/>}
             </ToggleButton>
-        </>
     )
 }
 
