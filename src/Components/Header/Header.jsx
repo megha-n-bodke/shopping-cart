@@ -1,49 +1,63 @@
 import React, {lazy,Suspense} from 'react';
 import './Utils.css'
 import {useState } from 'react';
-import Home from '../../pages/home/Home';
-import { HiOutlineUser } from "react-icons/hi";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineShoppingCart, AiOutlineUser, AiOutlineUserSwitch } from 'react-icons/ai';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link,
     withRouter
 } from "react-router-dom";
-// import Products from '../../pages/products/Products';
-// import Albums from '../../pages/albums/Albums';
-import MyCart from '../../pages/my-cart/MyCart';
-import LoginPage from '../Login/LoginPage';
-import MyWishList from '../../pages/my-wish-list/MyWishList';
-import Blog from '../../pages/blog/Blog';
-import OurJourney from '../../pages/journey/OurJourney';
-import blogdetails from '../../pages/blog/Blogdetails';
-import Blogdetails from '../../pages/blog/Blogdetails';
-import Err_Boundary from '../ErrorBoundary/ErrorBoundary';
-import ProductDetails from '../ProductList/ProductDetails';
+import { Badge, Button, Dropdown, DropdownButton } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 
 //Lazy loading
-const Albums = lazy(() => 
-{ 
+const Albums = lazy(() =>
+{
    return new Promise(resolve => setTimeout(resolve, 2 * 1000))
   .then(() => import('../../pages/albums/Albums')) });
 
-  const Products = lazy(() => 
-{ 
+  const Products = lazy(() =>
+{
    return new Promise(resolve => setTimeout(resolve, 1 * 1000))
   .then(() => import('../../pages/products/Products')) });
 
 
-
     const Header = () => {
     const [hmbgicon, sethmbgIcon] = useState(false);
-    let headertype = "topnav";
+    let headertype = 'topnav';
     const [toggleCls, settoggleCls] = useState(true);
+    const cart = useSelector(state => state.cart);
+    const user = useSelector(state => state.user);
+    let loginMenu = [];
+    if (user.token !== null) {
+        loginMenu.push(
+            // TODO
+                <Dropdown>
+            <Dropdown.Toggle variant="light">
+                <AiOutlineUser></AiOutlineUser>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+                <Link to="/my-cart">My Cart</Link>
+                <Link to="/my-wish-list">My Wishlist</Link>
+                <Link to="/logout">Logout</Link>
+                </Dropdown.Menu>
+            </Dropdown>
+        );
+    } else {
+        loginMenu.push(
+            // TODO
+            <Dropdown>
+                <Dropdown.Toggle variant="light">
+                    <AiOutlineUserSwitch></AiOutlineUserSwitch>
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                    <Link to="/login">Login</Link>
+                </Dropdown.Menu>
+            </Dropdown>
+        );
+    }
 
-      
     return (
         <>
         <Suspense fallback = {<div>Loading....please wait</div>}>
@@ -57,22 +71,27 @@ const Albums = lazy(() =>
                         <Link to="/blog">Blog</Link>
                         {/* <Link to="/journey">Our Journey</Link> */}
                         <Link to="/my-cart">
-                            <AiOutlineShoppingCart />
+                            {/* TODO Fix colour and position */}
+                            <Badge bg="danger">
+                                {Object.keys(cart).length}
+                            </Badge>
+                            <AiOutlineShoppingCart>
+                            </AiOutlineShoppingCart>
                         </Link>
-                        <Link to="/my-wish-list">Wishlist</Link>
-                        <a className="icon" onClick={() => { settoggleCls(!toggleCls) }}>
+                        <Link> {loginMenu} </Link>
+                        <a className="icon" onClick={() => {
+                            settoggleCls(!toggleCls);
+                        }}>
                             <i className="fa fa-bars"></i>
-                            <GiHamburgerMenu />
+                            <GiHamburgerMenu/>
                         </a>
-
                     </div>
-
                 </div>
             </withRouter>
             </Suspense>
         </>
     );
-}
+};
 
 
 export default Header;
