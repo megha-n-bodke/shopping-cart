@@ -7,6 +7,8 @@ import { GiLargeDress } from "react-icons/gi";
 import { IoShirtOutline } from "react-icons/io5";
 import { ImFacebook2 } from "react-icons/im";
 import { AiOutlineInstagram } from "react-icons/ai";
+import OurJourney from '../../pages/journey/OurJourney';
+
 import {
     BrowserRouter as Router,
     Route,
