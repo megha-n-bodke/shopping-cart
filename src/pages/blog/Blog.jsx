@@ -44,6 +44,7 @@ const BLogPage = () => {
         {posts.map(post => (
             <div className = "row shadow p-3 mb-5 bg-white rounded">
             <div className = "col-md-2 text-center">Image</div>
+            
             <div className = "col-md-10">
                 
                 <div  key={post.id}>

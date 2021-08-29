@@ -110,3 +110,8 @@ button{
     font-size: 18px;
 
 }
+
+.cartItem{
+  background-color: red;
+  border-radius: 50px;
+}

@@ -74,9 +74,9 @@ const Albums = lazy(() =>
                         {/* <Link to="/journey">Our Journey</Link> */}
                         <Link to="/my-cart">
                             {/* TODO Fix colour and position */}
-                            <Badge bg="danger">
-                                {Object.keys(cart).length}
-                            </Badge>
+                            
+                            <span class="badge cartItem"> {Object.keys(cart).length}</span>
+                            
                             <AiOutlineShoppingCart>
                             </AiOutlineShoppingCart>
                         </Link>

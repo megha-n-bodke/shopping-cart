@@ -8,6 +8,7 @@ import "./blog.css";
 const Blogdetails = props => {
     console.log(props.location.state.post);
     const post = props.location.state.post;
+    let email = ""
 
     const [comments, setComments] = useState([])
     let strp = "";
@@ -73,10 +74,11 @@ const Blogdetails = props => {
 
                         {comments.map(comment => {
                             console.log(comment.postId === post.id);
-                            
+                            {/* var name = email.substring(0, email.lastIndexOf("@")); */}
+
                             if(comment.postId === post.id)
                             return  <Row className="top-buffer">
-                                    <Col className="col-md-2">{comment.email}</Col>
+                                    <Col className="col-md-2">{comment.email.substring(0, comment.email.lastIndexOf("@"))}</Col>
                                     <Col className="col-md-10">
                                         <h4>{comment.name}</h4>
                                         <div>{comment.body}</div>
