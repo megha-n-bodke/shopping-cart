@@ -1,7 +1,12 @@
-.loginPageContainer{
-    display: flex;
-    width:100%;
+.body{
+    height:100%
 }
+
+.loginPage{
+    min-height: 100%;
+    width :100vw;
+}
+
 
 .user{
     position:absolute;
@@ -81,3 +86,7 @@
     top:20%;
     left:100%;
 }
+.text{
+    min-height: 100%;
+  }
+  

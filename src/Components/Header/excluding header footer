@@ -1,0 +1,15 @@
+import React, { Fragment } from 'react'
+// ...
+
+const App = () => (
+  <div>
+    <Switch>
+      <Route path='/no-header-route' component={NoHeaderComponent} />   // Route without header
+      <Fragment>            // This is the key
+        <Header/>           // Header is in its own component
+        <Route path='/route-1' component={Comp1}/>  // Route with header
+        <Route path='/route-2' component={Comp2}/>  // Route with header
+      </Fragment>
+    </Switch>
+  </div>
+)

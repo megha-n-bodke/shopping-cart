@@ -21,9 +21,9 @@ import { FaTwitterSquare } from "react-icons/fa";
 const Footer = () => {
     return (
         <withRouter>
-            <div>
-                <div className="container footerContainer">
-                    <div className="row">
+            <div className="footerContainer">
+                <div className="container ">
+                    <div className="row ">
                         <div className="col-md-3 col-sm-12">&nbsp;</div>
                     </div>
                     <div className="row">

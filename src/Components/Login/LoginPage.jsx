@@ -48,7 +48,7 @@ const LoginPage = () => {
     }
 
     return (
-        <Container>
+        <Container classname = "loginPage">
             <Row>
                 <Col lg={6} sm={{ order: 1 }} className="loginBackground">
                     <Container className="justify-content:flex-">
